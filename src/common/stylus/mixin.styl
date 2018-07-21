@@ -1,0 +1,90 @@
+// 背景图片
+bg-image($url)
+  background-image: url($url + "@2x.png")
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)
+    background-image: url($url + "@3x.png")
+
+// 不换行
+no-wrap()
+  text-overflow: ellipsis
+  overflow: hidden
+  white-space: nowrap
+
+// 扩展点击区域
+extend-click()
+  position: relative
+  &:before
+    content: ''
+    position: absolute
+    top: -10px
+    left: -10px
+    right: -10px
+    bottom: -10px
+
+flex-center()
+  display flex
+  align-items center
+  justify-content center
+
+x-scroll()
+  overflow-y: hidden
+  overflow-x: scroll
+  -webkit-overflow-scrolling: touch
+  white-space: nowrap
+
+y-scroll()
+  overflow-x: hidden
+  overflow-y: scroll
+  -webkit-overflow-scrolling: touch
+
+break-word()
+  word-wrap: break-word
+  white-space: normal
+
+border-box()
+  box-sizing: border-box
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+
+font-dpr($font-size)
+  font-size: $font-size
+  [data-dpr='2'] &
+    font-size: $font-size * 2
+  [data-dpr='3'] &
+    font-size: $font-size * 3
+
+button($width, $height)
+  text-align center
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  width: $width
+  height: $height
+  font-size: 0.426666666666667rem
+  color: #fff
+  background-color: $color-theme
+
+product-title()
+  height: 0.85rem;
+  margin: .05rem;
+  line-height: 0.43rem;
+  font-size: .11rem;
+  text-align: center;
+  display: -webkit-box;
+  white-space: normal;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+
+// 重置 InputItem 样式
+am-input-item()
+  .am-list-item .am-input-control input
+    font-family $font-family-m
+    color #ccc
+    font-size 30px
+  .am-list-line
+    border-bottom 1px solid $color-border
+  .am-list-item am-input-item am-list-item-middle
+    height 180px
